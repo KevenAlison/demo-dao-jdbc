@@ -35,10 +35,18 @@ public class Program {
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
+		
 		System.out.println("==== TEST 4: seeller insert ====");
 		Seller newSeller = new Seller(null, "Kymi", "kymiandersoon@gmail.com", new Date(), 2000.0, dep);
 		sellerDao.insert(newSeller);
 		System.out.println("Seller insrted!");
+		
+		System.out.println("==== TEST 4: seeller update ====");
+		seller = sellerDao.findById(1);
+		seller.setName("Martha Waine");
+		sellerDao.upadte(seller);
+		System.out.println("Update completed");
+		
 
 	}
 }

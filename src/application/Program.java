@@ -11,7 +11,7 @@ import model.entities.Seller;
 
 public class Program {
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
 
 		SellerDao sellerDao = DaoFactory.createSellerDao();
@@ -38,27 +38,25 @@ public class Program {
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
-		
+
 		System.out.println("==== TEST 4: seeller insert ====");
 		Seller newSeller = new Seller(null, "Kymi", "kymiandersoon@gmail.com", new Date(), 2000.0, dep);
-		//sellerDao.insert(newSeller);
+		sellerDao.insert(newSeller);
 		System.out.println("Seller insrted!");
-		
+
 		System.out.println("==== TEST 5: seeller update ====");
 		seller = sellerDao.findById(1);
 		seller.setName("Martha Waine");
 		sellerDao.upadte(seller);
 		System.out.println("Update completed");
-		
+
 		System.out.println("==== TEST 6: seeller update ====");
 		System.out.println("Entre com o ID para deletar um vendedor");
 		int idseller = sc.nextInt();
 		sellerDao.deleteById(idseller);
 		System.out.println("Deleção completa");
-		
-		sc.close();
 
-		
+		sc.close();
 
 	}
 }
